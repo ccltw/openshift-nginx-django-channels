@@ -1,0 +1,12 @@
+#!/bin/bash
+# The logic to stop your application should be put in this script.
+
+echo "ACTION HOOK: stop"
+
+uwsgi --stop ${OPENSHIFT_TMP_DIR}uwsgi.pid
+
+pkill uwsgi
+pkill python
+pkill daphne
+
+exit 0

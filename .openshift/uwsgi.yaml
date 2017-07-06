@@ -1,0 +1,6 @@
+uwsgi:
+    socket: $(OPENSHIFT_NGINX_IP):16001
+    pidfile: $(OPENSHIFT_TMP_DIR)/uwsgi.pid
+    pythonpath: $(OPENSHIFT_REPO_DIR)/wsgi/myproject/
+    module: myproject.wsgi:application
+    logto: $(OPENSHIFT_LOG_DIR)/uwsgi.log
